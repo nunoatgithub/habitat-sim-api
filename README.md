@@ -36,10 +36,9 @@ Build:
 
 ```bash
 cd /path/to/repo/0.2.2 or cd /path/to/repo/0.3.3
-```
 
-then do one of the following depending on the flavor you want to build.  
-```bash
+# then do one of the following depending on the flavor you want to build.  
+
 ./build.sh --with-all-types
 ./build.sh --with-public-types
 ./build.sh --with-packages 
