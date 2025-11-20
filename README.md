@@ -71,25 +71,16 @@ pip install /full/path/to/0.2.2/dist/habitat_sim_api-0.2.2.tar.gz
 pip install --no-index --find-links /full/path/to/0.2.2/dist habitat-sim-api
 ```
 
-How these stubs were generated
-
-The type stubs in this repository were generated from the source code of the `habitat-sim` project (https://github.com/nunoatgithub/habitat-sim), specifically from versions 0.2.2 and 0.3.3. The following command was used to generate the stubs for each version:
-
-```bash
-stubgen --parse-only -o target src_python/habitat_sim
-```
-
 Troubleshooting
 - During packaging, setuptools warns if `README.md` or `LICENSE` are missing. Add minimal `README.md` and `LICENSE` files into each version folder if you want to remove those warnings.
 - If `python -m build` fails: ensure the build dependencies are installed (see Requirements above).
 - If `./build.sh` is not executable: run `chmod +x build.sh` in the version folder.
 
-
 ---
 
 **Annex : Small reminder about how distribution works in python**
 
-This is a short reminder of what you find under each `dist/` and how to use those artifacts.
+Short general reminder of what you find under `dist/` and how to use those artifacts.
 
 What you typically find in `dist/`
 - Wheel (`.whl`): a built binary (for pure-Python packages this is a zip) that contains package files and metadata. Example: `habitat_sim_api-0.2.2-py3-none-any.whl`.
