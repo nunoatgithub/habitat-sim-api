@@ -1,0 +1,3 @@
+from habitat_sim.robots.fetch_robot import FetchRobot as FetchRobot, FetchRobotNoWheels as FetchRobotNoWheels
+from habitat_sim.robots.mobile_manipulator import MobileManipulator as MobileManipulator, MobileManipulatorParams as MobileManipulatorParams, RobotCameraParams as RobotCameraParams
+from habitat_sim.robots.robot_interface import RobotInterface as RobotInterface

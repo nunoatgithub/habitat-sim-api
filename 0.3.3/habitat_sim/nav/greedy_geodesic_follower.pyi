@@ -1,0 +1,22 @@
+import numpy as np
+from habitat_sim import errors as errors, scene as scene
+from habitat_sim.agent.agent import Agent as Agent
+from habitat_sim.agent.controls.controls import ActuationSpec as ActuationSpec
+from habitat_sim.nav import GreedyFollowerCodes as GreedyFollowerCodes, GreedyGeodesicFollowerImpl as GreedyGeodesicFollowerImpl, PathFinder as PathFinder
+from habitat_sim.utils.common import quat_to_magnum as quat_to_magnum
+from typing import Any, Dict, List
+
+class GreedyGeodesicFollower:
+    pathfinder: PathFinder
+    agent: Agent
+    goal_radius: float | None
+    action_mapping: Dict[GreedyFollowerCodes, Any]
+    impl: GreedyGeodesicFollowerImpl
+    forward_spec: ActuationSpec
+    left_spec: ActuationSpec
+    right_spec: ActuationSpec
+    last_goal: np.ndarray | None
+    def __init__(self, pathfinder: PathFinder, agent: Agent, goal_radius: float | None = None, *, stop_key: Any | None = None, forward_key: Any | None = None, left_key: Any | None = None, right_key: Any | None = None, fix_thrashing: bool = True, thrashing_threshold: int = 16) -> None: ...
+    def next_action_along(self, goal_pos: np.ndarray) -> Any: ...
+    def find_path(self, goal_pos: np.ndarray) -> List[Any]: ...
+    def reset(self) -> None: ...

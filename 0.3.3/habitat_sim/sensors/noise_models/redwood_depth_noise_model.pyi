@@ -1,0 +1,21 @@
+import numpy as np
+from habitat_sim._ext.habitat_sim_bindings import RedwoodNoiseModelGPUImpl as RedwoodNoiseModelGPUImpl, SensorType as SensorType
+from habitat_sim.bindings import cuda_enabled as cuda_enabled
+from habitat_sim.registry import registry as registry
+from habitat_sim.sensors.noise_models.sensor_noise_model import SensorNoiseModel as SensorNoiseModel
+from numpy import ndarray as ndarray
+from torch import Tensor as Tensor
+
+class RedwoodNoiseModelCPUImpl:
+    model: np.ndarray
+    noise_multiplier: float
+    def __attrs_post_init__(self) -> None: ...
+    def simulate(self, gt_depth): ...
+
+class RedwoodDepthNoiseModel(SensorNoiseModel):
+    noise_multiplier: float
+    def __attrs_post_init__(self) -> None: ...
+    @staticmethod
+    def is_valid_sensor_type(sensor_type: SensorType) -> bool: ...
+    def simulate(self, gt_depth: ndarray | Tensor) -> ndarray | Tensor: ...
+    def apply(self, gt_depth: ndarray | Tensor) -> ndarray | Tensor: ...

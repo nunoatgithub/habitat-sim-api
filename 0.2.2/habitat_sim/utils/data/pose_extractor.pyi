@@ -1,0 +1,26 @@
+import habitat_sim
+import numpy as np
+from _typeshed import Incomplete
+from habitat_sim.utils.common import quat_from_two_vectors as quat_from_two_vectors
+from numpy import float32 as float32, float64 as float64, ndarray
+from typing import List, Tuple
+
+class TopdownView:
+    topdown_view: habitat_sim.nav.PathFinder
+    def __init__(self, sim, height, meters_per_pixel: float = 0.1) -> None: ...
+
+class PoseExtractor:
+    tdv_fp_ref_triples: Incomplete
+    meters_per_pixel: Incomplete
+    labels: Incomplete
+    def __init__(self, topdown_views: List[Tuple[TopdownView, str, Tuple[float32, float32, float32]]], meters_per_pixel: float = 0.1) -> None: ...
+    def extract_all_poses(self) -> np.ndarray: ...
+    def extract_poses(self, view: np.ndarray, fp: str) -> List[Tuple[Tuple[int, int], Tuple[int, int], str]]: ...
+
+class ClosestPointExtractor(PoseExtractor):
+    def __init__(self, topdown_views: List[Tuple[TopdownView, str, Tuple[float32, float32, float32]]], meters_per_pixel: float = 0.1) -> None: ...
+    def extract_poses(self, view: ndarray, fp: str) -> List[Tuple[Tuple[int, int], Tuple[int, int], str]]: ...
+
+class PanoramaExtractor(PoseExtractor):
+    def __init__(self, topdown_views: List[Tuple[TopdownView, str, Tuple[float32, float32, float32]]], meters_per_pixel: float = 0.1) -> None: ...
+    def extract_poses(self, view: ndarray, fp: str) -> List[Tuple[Tuple[int, int], Tuple[int, int], str]]: ...
