@@ -1,0 +1,4 @@
+from _typeshed import Incomplete
+from habitat_sim._ext.habitat_sim_bindings import AssetAttributesManager as AssetAttributesManager, ObjectAttributesManager as ObjectAttributesManager, PhysicsAttributesManager as PhysicsAttributesManager, StageAttributesManager as StageAttributesManager
+
+__all__: Incomplete
