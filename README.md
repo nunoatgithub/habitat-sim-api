@@ -5,7 +5,7 @@ This repository contains 3 flavors of the habitat-sim-api:
 ```bash
 stubgen --parse-only --include-private -o target src_python/habitat_sim src_python/habitat_sim/**/*.py
 ```
-2. with-public-types - stubs for the public parts of the habitat-sim package, generated using
+2. with-public-types - stubs for the public parts only, generated using
 ```bash
 stubgen --parse-only -o target src_python/habitat_sim
 ```
